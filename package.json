@@ -28,12 +28,23 @@
     "@babel/preset-react": "^7.18.6",
     "babel-loader": "^8.2.5",
     "browserify": "^17.0.0",
+    "css-loader": "^6.7.1",
+    "eslint": "^8.21.0",
     "express": "^4.18.1",
-    "gulp": "^4.0.2",
+    "gulp": "^3.9.1",
     "nodemon": "^2.0.19",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "style-loader": "^3.3.1",
     "webpack": "^5.74.0"
+  },
+  "dependencies": {
+    "sass": "^1.54.3"
   }
 }
+
+
+//NOTE TO SELF: REVISIT WHICH MODULES ARE IN WHICH FOLDER: https://stackoverflow.com/questions/46903002/move-a-module-from-devdependencies-to-dependencies-in-npm-package-json
+//"dependencies": Packages required by your application in production.
+//"devDependencies": Packages that are only needed for local development and testing.
