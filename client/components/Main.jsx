@@ -9,7 +9,7 @@ render() {
   return (
     <section>
         <header>
-            <h2> Welcome to Bug Log!</h2>
+            <h2> THIS IS WORKING (HELLO FROM REACT) </h2>
             <button>+</button>
         </header>
         <div>

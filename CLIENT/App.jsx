@@ -5,7 +5,7 @@ import Main from './components/Main';
 const App = props => {
     return (
         <div>
-        <main>
+        <main id='body' >
           < Main />
         </main>
       </div>
