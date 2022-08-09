@@ -19,7 +19,7 @@ module.exports = {
       port: 8080,
       // match the output path
       static: {
-        directory: path.resolve(__dirname, 'dist'),
+        directory: path.resolve(__dirname, 'build'),
         // match the output 'publicPath'
         publicPath: '/',
       },
@@ -52,6 +52,12 @@ module.exports = {
           exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
+            options: {
+                presets: [
+                  '@babel/preset-env', 
+                  '@babel/preset-react', 
+                ]
+            }
           },
         },
         {
@@ -63,10 +69,8 @@ module.exports = {
           test: /\.(png|jpg|gif|woff|woff2|eot|ttf|svg|ico)$/,
           use: [
             {
-              // loads files as base64 encoded data url if image file is less than set limit
               loader: 'url-loader',
               options: {
-                // if file is greater than the limit (bytes), file-loader is used as fallback
                 limit: 8192,
               },
             },

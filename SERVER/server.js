@@ -35,3 +35,7 @@ app.listen(PORT, () => {
 }); 
 
 module.exports = app; 
+
+//NOTE TO SELF FOR JSON PACKAGE: REVISIT WHICH MODULES ARE IN WHICH FOLDER: https://stackoverflow.com/questions/46903002/move-a-module-from-devdependencies-to-dependencies-in-npm-package-json
+//"dependencies": Packages required by your application in production.
+//"devDependencies": Packages that are only needed for local development and testing.
