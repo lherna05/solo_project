@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/lherna05/solo_project#readme",
   "devDependencies": {
+    "express": "^4.18.1",
     "nodemon": "^2.0.19"
   }
 }
