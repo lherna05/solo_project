@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
 import './stylesheets/styles.css';
+import Main from './components/Main';
 
 const App = props => {
     return (
-        <div className="router">
+        <div>
         <main>
           < Main />
         </main>
       </div>
-    )
-}
+    );
+};
+
+export default App; 
