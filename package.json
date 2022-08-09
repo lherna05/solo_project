@@ -1,0 +1,23 @@
+{
+  "name": "solo_project",
+  "version": "1.0.0",
+  "description": "Bug Log encourages devs to track and review common bugs. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lherna05/solo_project.git"
+  },
+  "keywords": [
+    "debug",
+    "document"
+  ],
+  "author": "Lani Hernandez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lherna05/solo_project/issues"
+  },
+  "homepage": "https://github.com/lherna05/solo_project#readme"
+}
