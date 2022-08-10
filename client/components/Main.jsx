@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import Log_Display from './Log_Display';
 import Single_Log from './Single_Log';
 
 //BELOW: <single_log/> will be replaced with {Single Logs} --> add functionality to render all single log components 
-
+class Main extends Component {
 render() {
   
   return (
@@ -20,5 +19,6 @@ render() {
     </section>
   )
 }; 
+}
 
 export default Main; 

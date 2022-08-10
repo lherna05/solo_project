@@ -14,6 +14,11 @@ module.exports = {
     },
     devtool: 'eval-source-map',
     mode: 'production',
+    performance: {
+        hints: false,
+        maxEntrypointSize: 512000,
+        maxAssetSize: 512000
+    },
     devServer: {
       host: 'localhost',
       port: 8080,
@@ -84,7 +89,6 @@ module.exports = {
       }),
     ],
     resolve: {
-      // Enable importing JS / JSX files without specifying their extension
       extensions: ['.js', '.jsx'],
     },
   };

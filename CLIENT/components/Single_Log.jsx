@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SingleLog = ({
+const Single_Log = ({
     //add parameters
 }) => {
 
