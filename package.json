@@ -44,6 +44,7 @@
   },
   "dependencies": {
     "html-webpack-plugin": "^5.5.0",
+    "pg": "^8.7.3",
     "react-router-dom": "^6.3.0",
     "url-loader": "^4.1.1",
     "webpack-dev-server": "^4.9.3"
