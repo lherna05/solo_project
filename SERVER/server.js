@@ -2,6 +2,8 @@ const path = require('path');
 const express = require('express');
 
 const app = express();
+const cors = require('cors');
+
 const PORT = 3000;
 console.log("hitting server")
 //require router
@@ -11,6 +13,7 @@ const bugRouter = require('./routes/routes');
 //parse requesy body
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 //requests for static files 
 // app.use('/assets', express.static(path.resolve(__dirname, '../client')));

@@ -9,6 +9,7 @@ const router = express.Router();
 //FORMAT FOR GET ALL GET REQ: 
 //no body -- loads upon page loading
 console.log("HITTING ROUTES FOLDER")
+
 router.get('/getAll', bugController.getAllLogs, (req, res) => {
     console.log("WE HAVE ENTERED THE GET ALL GET REQUEST");
     return res.status(200).json([...res.locals.logs]);
@@ -23,7 +24,7 @@ router.get('/getAll', bugController.getAllLogs, (req, res) => {
 //     "note": "Not executing past queryStr const. Resolved: need to use single quotes in the queryStr."
 //  }
 
-router.post('/postNew', bugController.createLog, (req, res) => {
+router.post('/postOne', bugController.createLog, (req, res) => {
     console.log("WE HAVE ENTERED THE POST REQUEST FOR CREATE LOG");
     return res.status(200).json(res.locals.newLog);
 }); 
@@ -57,7 +58,7 @@ router.delete('/deleteOne', bugController.deleteLog, (req, res) => {
 
 //do I need the read single middleware before the updateLog? 
 
-router.patch('/', bugController.updateLog, (req, res) => {
+router.patch('/updateOne', bugController.updateLog, (req, res) => {
     console.log("WE HAVE ENTERED THE PATCH REQ");
     return res.status(200).json(res.locals.updatedLog);
 }); 

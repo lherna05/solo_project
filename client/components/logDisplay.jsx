@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './../stylesheets/styles.css';
 import Single_Log from './SingleLog';
 
+
 class LogDisplay extends Component {
 constructor() {
   super();
@@ -67,12 +68,21 @@ constructor() {
   }
 }
 componentDidMount() {
-  fetch('/api')
+  fetch('http://localhost:3000/', {
+    headers: {
+    "Content-Type": "application/json"
+  }, 
+  method: "GET", 
+  mode: "no-cors"
+}
+  )
   .then(data => {
   return data.json()
   })
-  .then( (post) => {
-  console.log(post);
+  .then( (data) => {
+  this.setState({
+    logs: [...data]
+  });
   });
 }
  render() {  

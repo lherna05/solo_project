@@ -55,7 +55,7 @@ await db.query(queryStr, values)
     return next();
   })
   .catch (err => next( {err: {
-    log: 'Error in bugController.createLog', 
+    log: 'Invalid input for request caught in bugController.createLog.', 
     message: {err: 'Error in bugController.createLog'},
     }}
   ));
