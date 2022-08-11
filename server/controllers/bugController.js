@@ -2,12 +2,6 @@ const db = require('../models/bugModels');
 
 const bugController = {}; 
 
-
-
-
-
-
-
 bugController.getAllLogs = async (req, res, next) => {
   const queryStr = 'SELECT * FROM Logs';
   await db.query(queryStr)
@@ -16,10 +10,10 @@ bugController.getAllLogs = async (req, res, next) => {
         res.locals.logs = result.rows;
         return next();
     })
-    // .catch (err => next( {err: {
-    //     log: 'Error in bugController.getAllLogs', 
-    //     message: {err: 'Error in bugController.getAllLogs.'},
-    // }} ));
+    .catch (err => next( {err: {
+        log: 'Error in bugController.getAllLogs', 
+        message: {err: 'Error in bugController.getAllLogs.'},
+    }} ));
 };
 
 // //adds a new record 
@@ -37,46 +31,75 @@ await db.query(queryStr, values)
     res.locals.newLog = newLog
     return next();
   })
-  // .catch (err => next( {err: {
-  //   log: 'Error in bugController.getAllLogs', 
-  //   message: {err: 'Error in bugController.getAllLogs.'},
-  //   }} ));
+  .catch (err => next( {err: {
+    log: 'Error in bugController.createLog', 
+    message: {err: 'Error in bugController.createLog'},
+    }}
+  ));
 };
 
 //get a single log
 //SELECT * FROM Logs WHERE id = 3
 
 bugController.readSingleLog = async (req, res, next) => {
-  const {id} = req.body; 
-  const value = [id];
-  const queryStr = 'SELECT * FROM Logs WHERE id = VALUES ($1)';
+  const id = Number(req.body.id);
+  const queryStr = `SELECT * FROM Logs WHERE id = ${id}`;
+
   await db.query(queryStr)
     .then(result => {
         console.log("RESULTS ARE ", result.rows);
-        res.locals.logs = result.rows;
+        res.locals.singleLog = result.rows;
         return next();
     })
-    // .catch (err => next( {err: {
-    //     log: 'Error in bugController.getAllLogs', 
-    //     message: {err: 'Error in bugController.getAllLogs.'},
-    // }} ));
+    .catch (err => next( {err: {
+        log: 'Error in bugController.readSingleLog', 
+        message: {err: 'Error in bugController.readSingleLog.'},
+    }}
+  ));
 };
 
 
 // //update a record 
 // UPDATE Logs SET resolved = true WHERE ID = 2;
-bugController.updateLog = (res, req, next) => {
+bugController.updateLog = async (req, res, next) => {
+  const column_name = req.body.column_name;
+  const expression = req.body.expression; 
+  const id = Number(req.body.id);
 
+  const queryStr = `UPDATE Logs SET ${column_name} = '${expression}' WHERE ID = ${id} RETURNING *`; //fix this foo
 
+  await db.query(queryStr)
+    .then(result => {
+        console.log("UPDATED RESULTS ARE ", result.rows);
+        res.locals.updatedLog = result.rows;
+        return next();
+    })
+    .catch (err => next( {err: {
+        log: 'Error in bugController.updateLog', 
+        message: {err: 'Error in bugController.updateLog.'},
+    }} 
+  ));
 };
 
 // //delete a record 
 // DELETE FROM Logs
 // WHERE id = 2;
 
-bugController.deleteLog = (res, req, next) => {
+bugController.deleteLog = async (req, res, next) => {
+  const id = Number(req.body.id); 
+  const queryStr = `DELETE FROM Logs WHERE id = ${id} RETURNING *`; 
 
-
+  await db.query(queryStr)
+    .then(result => {
+      console.log("DELETED ID IS ", result.rows);
+      res.locals.deleteLog = result.rows; 
+      return next(); 
+    })
+  //   .catch (err => next( {err: {
+  //     log: 'Error in bugController.deleteLog', 
+  //     message: {err: 'Error in bugController.deleteLog'},
+  // }} 
+  // ));
 };
 
 module.exports = bugController; 

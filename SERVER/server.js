@@ -6,7 +6,6 @@ const PORT = 3000;
 
 //require router
 const bugRouter = require('./routes/routes');
-const singleRouter = require('./routes/single')
 // const { __esModule } = require('url-loader/dist');
 
 //parse requesy body
@@ -16,10 +15,8 @@ app.use(express.urlencoded({ extended: true }));
 //requests for static files 
 app.use('/assets', express.static(path.resolve(__dirname, '../client')));
 
-
 //route handlers: 
 app.use('/', bugRouter); //double check the endpoint -- how do we know what the endpoint is? 
-app.use('/', singleRouter);
 
 //route for main app 
 // app.get('/routes', (req, res) => {
