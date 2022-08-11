@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import './../stylesheets/styles.css';
 
-class Single_Log extends Component {
-  render() {
-  const {id, title, resolved, note, updateLog, deleteLog} = props; 
 
+class Single_Log extends Component {
+  
+  render() {
+  // const {id, title, resolved, note, updateLog, deleteLog} = this.props; 
+    console.log("PROPS.INFO ARE ",this.props.info.resolved)
   return (
       <section className="grid-container">
-       <div className="item1" style="grid-item"> {id} </div>
-       <div className="item2" style="grid-item"> {title}</div>
-       <div className="item3" style="grid-item"> <button name={updateLog}>Update</button></div>
-       <div className="item4" style="grid-item"> <button name={deleteLog}>Delete</button></div>
-       <div className="item5" style="grid-item"> {resolved}</div>
-       <div className="item6" style="grid-item"> {note}</div>
+       <div className="item1" > ID:{this.props.info.id} </div>
+       <div className="item2" >  {this.props.info.title}</div>
+       <div className="item3" > <button>Update</button></div>
+       <div className="item4" > <button>Delete</button></div>
+       <div className="item5" > Resolved? {`${this.props.info.resolved}`}</div>
+       <div className="item6" > {this.props.info.note}</div>
       </section>
     );
   }

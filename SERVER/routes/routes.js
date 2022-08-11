@@ -8,8 +8,8 @@ const router = express.Router();
 
 //FORMAT FOR GET ALL GET REQ: 
 //no body -- loads upon page loading
-
-router.get('/', bugController.getAllLogs, (req, res) => {
+console.log("HITTING ROUTES FOLDER")
+router.get('/getAll', bugController.getAllLogs, (req, res) => {
     console.log("WE HAVE ENTERED THE GET ALL GET REQUEST");
     return res.status(200).json([...res.locals.logs]);
 });
@@ -23,7 +23,7 @@ router.get('/', bugController.getAllLogs, (req, res) => {
 //     "note": "Not executing past queryStr const. Resolved: need to use single quotes in the queryStr."
 //  }
 
-router.post('/', bugController.createLog, (req, res) => {
+router.post('/postNew', bugController.createLog, (req, res) => {
     console.log("WE HAVE ENTERED THE POST REQUEST FOR CREATE LOG");
     return res.status(200).json(res.locals.newLog);
 }); 
@@ -41,7 +41,7 @@ router.get('/single', bugController.readSingleLog, (req, res) => {
 }); 
 
 //DELETE - delete log 
-router.delete('/', bugController.deleteLog, (req, res) => {
+router.delete('/deleteOne', bugController.deleteLog, (req, res) => {
     console.log("WE HAVE ENTERED THE DELETE REQ");
     return res.status(200).json(res.locals.deletedLog);
 }); 

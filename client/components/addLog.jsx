@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import './../stylesheets/styles.css';
 
 class AddLog extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          isChecked: false,
+        }
+      }
+
   render() {
   return (
     <section>
@@ -16,8 +23,8 @@ class AddLog extends Component {
               <label> Resolved? <input           
                   type="checkbox"
                   name="isChecked"
-                  checked={state.isChecked}
-                  onChange={handleChange} />
+                  checked={this.state.isChecked}
+                   />
               </label>
             </span>
 

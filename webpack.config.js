@@ -13,7 +13,7 @@ module.exports = {
       filename: 'bundle.js',
     },
     devtool: 'eval-source-map',
-    mode: 'development',
+    mode: 'NODE_ENV',
     performance: {
         hints: false,
         maxEntrypointSize: 512000,
@@ -22,23 +22,14 @@ module.exports = {
     devServer: {
       host: 'localhost',
       port: 8080,
-      // match the output path
       static: {
         directory: path.resolve(__dirname, 'build'),
-        // match the output 'publicPath'
+        compress: true,
         publicPath: '/',
       },
-      // enable HMR on the devServer
       hot: true,
-      // fallback to root for other urls
       historyApiFallback: true,
       headers: { 'Access-Control-Allow-Origin': '*' },
-      /**
-       * proxy is required in order to make api calls to
-       * express server while using hot-reload webpack server
-       * routes api fetch requests from localhost:8080/api/* (webpack dev server)
-       * to localhost:3000/api/* (where our Express server is running)
-       */
       proxy: {
         '/api/**': {
           target: 'http://localhost:3000/',
