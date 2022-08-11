@@ -1,23 +1,30 @@
 const path = require('path');
 const express = require('express');
+
 const app = express();
-
-const bugRouter = require('./routes/routes');
-
 const PORT = 3000;
 
+//require router
+const bugRouter = require('./routes/routes');
+const singleRouter = require('./routes/single')
+// const { __esModule } = require('url-loader/dist');
 
 //parse requesy body
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //requests for static files 
-// app.use(express.static(path.resolve(__dirname, '../client')));
+app.use('/assets', express.static(path.resolve(__dirname, '../client')));
 
 
 //route handlers: 
-app.use('/', bugRouter);
+app.use('/', bugRouter); //double check the endpoint -- how do we know what the endpoint is? 
+app.use('/', singleRouter);
 
+//route for main app 
+// app.get('/routes', (req, res) => {
+//     return res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'))
+// })
 
 //catch-all route handler for requests to unknown routes 
 app.use((req, res) => res.status(404).send('The page you are requesting does not exist.')); 
