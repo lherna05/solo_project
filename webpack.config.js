@@ -13,7 +13,7 @@ module.exports = {
       filename: 'bundle.js',
     },
     devtool: 'eval-source-map',
-    mode: 'production',
+    mode: 'development',
     performance: {
         hints: false,
         maxEntrypointSize: 512000,

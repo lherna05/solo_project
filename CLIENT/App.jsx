@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import './stylesheets/styles.css';
 import Main from './components/Main';
 
-const App = props => {
+class App extends Component {
+   
+ render(){
     return (
         <div >
-        <main >
-          < Main id=".main"/>
-        </main>
+          < Main />
       </div>
     );
-};
+  }
+}
 
 export default App; 
+// ReactDOM.render(<App />, document.getElementById('app'));

@@ -1,22 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './../stylesheets/styles.css';
 
-const Single_Log = ({
-    //add parameters
-}) => {
+class Single_Log extends Component {
+  render() {
+  const {id, title, resolved, note, updateLog, deleteLog} = props; 
 
   return (
       <section className="grid-container">
        <div className="item1" style="grid-item"> {id} </div>
        <div className="item2" style="grid-item"> {title}</div>
-       <div className="item3" style="grid-item"> <button>Update</button></div>
-       <div className="item4" style="grid-item"> <button>Delete</button></div>
+       <div className="item3" style="grid-item"> <button name={updateLog}>Update</button></div>
+       <div className="item4" style="grid-item"> <button name={deleteLog}>Delete</button></div>
        <div className="item5" style="grid-item"> {resolved}</div>
        <div className="item6" style="grid-item"> {note}</div>
       </section>
-  );
-};
-
+    );
+  }
+}
 export default Single_Log; 
 
 
