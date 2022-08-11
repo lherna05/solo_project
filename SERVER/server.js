@@ -19,9 +19,9 @@ app.use('/assets', express.static(path.resolve(__dirname, '../client')));
 app.use('/', bugRouter); //double check the endpoint -- how do we know what the endpoint is? 
 
 //route for main app 
-// app.get('/routes', (req, res) => {
-//     return res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'))
-// })
+app.get('/routes', (req, res) => {
+    return res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'))
+})
 
 //catch-all route handler for requests to unknown routes 
 app.use((req, res) => res.status(404).send('The page you are requesting does not exist.')); 

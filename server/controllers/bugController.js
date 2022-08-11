@@ -6,7 +6,6 @@ bugController.getAllLogs = async (req, res, next) => {
   const queryStr = 'SELECT * FROM Logs';
   await db.query(queryStr)
     .then(result => {
-        console.log("RESULTS ARE ", result.rows);
         res.locals.logs = result.rows;
         return next();
     })
@@ -15,6 +14,30 @@ bugController.getAllLogs = async (req, res, next) => {
         message: {err: 'Error in bugController.getAllLogs.'},
     }} ));
 };
+
+//VIEW BY DATE CREATED (aka ID) [STRETCH] --> SELECT * FROM Logs ORDER BY id ASC
+
+bugController.getByDateCreated = async (req, res, next) => {
+  const queryStr = 'SELECT * FROM Logs ORDER BY id ASC';
+  await db.query(queryStr)
+    .then(result => {
+        res.locals.logsByDateCreated = result.rows;
+        return next();
+    })
+    .catch (err => next( {err: {
+        log: 'Error in bugController.getByDateCreated', 
+        message: {err: 'Error in bugController.getByDateCreated'},
+    }}
+  ));
+};
+
+//VIEW BY DATE LAST UPDATED (aka updated_at) [STRETCH] --> SELECT * FROM Logs ORDER BY updated_at ASC
+
+//VIEW NOT RESOLVED  [STRETCH] --> SELECT * FROM Logs WHERE resolved = false
+
+//VIEW RESOLVED  [STRETCH] --> SELECT * FROM Logs WHERE resolved = true
+
+//VIEW BY TITLE  [STRETCH] --> SELECT * FROM Logs ORDER BY title ASC
 
 // //adds a new record 
 // INSERT INTO Logs(Title, Resolved, Note)
