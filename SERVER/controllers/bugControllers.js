@@ -1,9 +1,6 @@
-const db = require('../models/bugsModels');
+const db = require('../models/bugModels');
+
 const bugController = {}; 
-
-// //retrieves all data from table 
-// SELECT * FROM Logs
-
 
 // //adds a new record 
 // INSERT INTO Logs(Title, Resolved, Note)
@@ -17,8 +14,17 @@ const bugController = {};
 // UPDATE Logs SET resolved = true WHERE ID = 2;
 
 bugController.getAllLogs = (res, req, next) => {
-
-
+  const queryStr = 'SELECT * FROM Logs';
+  db.query(queryStr)
+    .then(result => {
+        console.log("RESULTS ARE ", result.rows);
+        res.locals.logs = result.rows;
+        return next();
+    })
+    // .catch (err => next( {err: {
+    //     log: 'Error in bugController.getAllLogs', 
+    //     message: {err: 'Error in bugController.getAllLogs.'},
+    // }} ));
 };
 
 bugController.createLog = (res, req, next) => {

@@ -1,7 +1,7 @@
 
 const { Pool } = require('pg');
-const { Compiler } = require('webpack');
-const { internalIP } = require('webpack-dev-server');
+// const { Compiler } = require('webpack');
+// const { internalIP } = require('webpack-dev-server');
 
 const PG_URI = "postgres://zgbmcgcp:ltyULIz4xeHvaTygaNR_WKm439bcQED6@castor.db.elephantsql.com/zgbmcgcp";
 
