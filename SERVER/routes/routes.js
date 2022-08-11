@@ -55,6 +55,8 @@ router.delete('/', bugController.deleteLog, (req, res) => {
 //     "id": "13"
 //  }
 
+//do I need the read single middleware before the updateLog? 
+
 router.patch('/', bugController.updateLog, (req, res) => {
     console.log("WE HAVE ENTERED THE PATCH REQ");
     return res.status(200).json(res.locals.updatedLog);
