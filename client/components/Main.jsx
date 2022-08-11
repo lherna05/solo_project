@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Single_Log from './Single_Log';
+import Single_Log from './singleLog';
 import popUp from './popUp';
 
 //BELOW: <single_log/> will be replaced with {Single Logs} --> add functionality to render all single log components 
