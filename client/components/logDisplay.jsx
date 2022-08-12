@@ -73,7 +73,7 @@ componentDidMount() {
     "Content-Type": "application/json"
   }, 
   method: "GET", 
-  mode: "no-cors"
+  
 }
   )
   .then(data => {

@@ -10,7 +10,8 @@ class Main extends Component {
   return (
     <div>
     <section>
-      <h3>What are we learning today? </h3>
+      <h1>Welcome to Bug Log!</h1>
+      <h3><em>What are you learning today?</em> </h3>
       <WelcomeDisplay />
     </section>
     <section>

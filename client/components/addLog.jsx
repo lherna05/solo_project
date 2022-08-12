@@ -30,6 +30,9 @@ class AddLog extends Component {
 
               <label> Note:<input type="text" />
               </label>
+              <span>
+              <button>Submit</button>
+              </span>
   </form>
 </div>
     </section>

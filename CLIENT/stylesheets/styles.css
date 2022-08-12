@@ -1,7 +1,9 @@
+
+
 main {
     margin: 0px;
-    background-color: white; 
-    font: 'Trebuchet', sans-serif;
+    background-color: rgb(121, 173, 105); 
+    font-family: 'Figtree', sans-serif;
 }
 
 .font-link {
@@ -68,22 +70,32 @@ th {
   top: 15px; 
 }
 
-.item1 { grid-area: id; }
+.item1 { 
+  grid-area: id; 
+  font-style: bold;
+  text-align: left;
+  font: 'Figtree';
+}
 .item2 { grid-area: title; }
 .item3 { grid-area: update; }
 .item4 { grid-area: delete; }
 .item5 { grid-area: resolved; }
 .item6 { grid-area: note; }
+.item7 { grid-area: null}
 
 .grid-container {
   display: grid;
   grid-template-areas: 
-    'id title title title title title title title update delete'
-    'resolved note note note note note note note note note';
-  background-color: #8ec88c;
+    'id title title title title title title title resolved'
+    'note note note note note note note note note'
+    'update delete null null null null null null null';
+  background-color: rgba(240, 210, 210, 0.8);
   border-radius: 10px;
   gap: 10px;
-  font: 'Figtree', sans-serif;
+  font-family: 'Figtree', sans-serif;
+  padding: 5px;
+  box-shadow: 10px 10px;
+  
 }
 
 .grid-item {

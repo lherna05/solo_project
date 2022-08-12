@@ -8,6 +8,7 @@ class Single_Log extends Component {
   // const {id, title, resolved, note, updateLog, deleteLog} = this.props; 
     console.log("PROPS.INFO ARE ",this.props.info.resolved)
   return (
+    <div>
       <section className="grid-container">
        <div className="item1" > ID:{this.props.info.id} </div>
        <div className="item2" >  {this.props.info.title}</div>
@@ -15,7 +16,9 @@ class Single_Log extends Component {
        <div className="item4" > <button>Delete</button></div>
        <div className="item5" > Resolved? {`${this.props.info.resolved}`}</div>
        <div className="item6" > {this.props.info.note}</div>
+       <div className="item7"></div>
       </section>
+    </div>  
     );
   }
 }
