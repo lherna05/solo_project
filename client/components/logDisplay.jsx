@@ -68,22 +68,22 @@ constructor() {
   }
 }
 componentDidMount() {
-  fetch('http://localhost:3000/', {
-    headers: {
-    "Content-Type": "application/json"
-  }, 
-  method: "GET", 
+//   fetch('http://localhost:3000/', {
+//     headers: {
+//     "Content-Type": "application/json"
+//   }, 
+//   method: "GET", 
   
-}
-  )
-  .then(data => {
-  return data.json()
-  })
-  .then( (data) => {
-  this.setState({
-    logs: [...data]
-  });
-  });
+// }
+//   )
+//   .then(data => {
+//   return data.json()
+//   })
+//   .then( (data) => {
+//   this.setState({
+//     logs: [...data]
+//   });
+//   });
 }
  render() {  
   // const {id, title, resolved, note, allLogs, updateLog, deleteLog} = props; 

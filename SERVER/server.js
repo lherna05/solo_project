@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 //requests for static files 
-// app.use('/assets', express.static(path.resolve(__dirname, '../client')));
+app.use('/assets', express.static(path.resolve(__dirname, '../client')));
 
 //route handlers: 
 app.use('/', bugRouter); //double check the endpoint -- how do we know what the endpoint is? 

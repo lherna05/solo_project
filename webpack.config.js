@@ -13,7 +13,7 @@ module.exports = {
       filename: 'bundle.js',
     },
     devtool: 'eval-source-map',
-    mode: 'NODE_ENV',
+    mode: 'development',
     performance: {
         hints: false,
         maxEntrypointSize: 512000,
@@ -24,7 +24,6 @@ module.exports = {
       port: 8080,
       static: {
         directory: path.resolve(__dirname, 'build'),
-        compress: true,
         publicPath: '/',
       },
       hot: true,

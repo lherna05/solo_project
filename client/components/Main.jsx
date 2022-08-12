@@ -11,7 +11,9 @@ class Main extends Component {
     <div>
     <section>
       <h1 id="main">Welcome to Bug Log!</h1>
+
       <h3 id="main"><em>What are you learning today?</em> </h3>
+      
       <WelcomeDisplay id="main" />
     </section>
     <section>
