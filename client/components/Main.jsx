@@ -8,11 +8,11 @@ class Main extends Component {
 
   render() {
   return (
-    <div>
-    <section>
-      <h1>Welcome to Bug Log!</h1>
-      <h3><em>What are you learning today?</em> </h3>
-      <WelcomeDisplay />
+    <div id="main">
+    <section id="main">
+      <h1 id="main">Welcome to Bug Log!</h1>
+      <h3 id="main"><em>What are you learning today?</em> </h3>
+      <WelcomeDisplay id="main" />
     </section>
     <section>
        <LogContainer />
